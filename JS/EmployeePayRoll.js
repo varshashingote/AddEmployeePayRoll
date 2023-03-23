@@ -10,10 +10,11 @@ class EmployeePayrollData
     set name(name) {
         let nameRegex = RegExp('^[A-Z]{1}[a-z]{2,}$');
         if (nameRegex.test(name))
-        
+        {
             this._name = name;
-        
+        }
         else throw 'Name is Incorrect!';
+        this._name=name;
     }
     get profilePic() {return this._profilePic}
     set profilePic(profilePic){
@@ -37,11 +38,11 @@ class EmployeePayrollData
     }
     get startDate() {return this._startDate}
     set startDate(startDate){
-        // let now=new Date();
-        // if(startDate >now)throw 'Start Date is a Future date!';
-        // var diff=Math.abs(now.getTime()-startDate.getTime());
-        // if(diff/(1000*60*60*24)>30)
-        // throw 'start date is beyond 30days';
+        let now=new Date();
+        if(startDate >now)throw 'Start Date is a Future date!';
+        var diff=Math.abs(now.getTime()-startDate.getTime());
+        if(diff/(1000*60*60*24)>30)
+        throw 'start date is beyond 30days';
         this._startDate=startDate;
     }
     // method

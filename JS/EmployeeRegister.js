@@ -102,3 +102,32 @@ function createAddUpdateStorage(employeePayrollData){
     alert(employeePayrollList.toString());
     localStorage.setItem("EmployeePayrollList", JSON.stringify(employeePayrollList))
 }
+/*AddPayroll UC-5 =>  Reset the Employee Payroll Form */
+const resetForm=() =>
+{
+    setValue('#name','');
+    setValuebyClassName('.text-error','');
+    unsetSelectedValues('[name=profile]');
+    unsetSelectedValues('[name=gender]');
+    unsetSelectedValues('[name=department]');
+    setValuebyClassName('.salary-output','700000');
+    setValue('#notes','');
+    setValue('#day','1');
+    setValue('#month','january')
+    setValue('#year','2023');
+}
+const unsetSelectedValues=(propertyValue)=>{
+    let allItems = document.querySelectorAll(propertyValue);
+    allItems.forEach(item=>{
+        item.checked=false;
+    });
+}
+const setValue=(id,value)=>{
+    const element = document.querySelector(id);
+    element.value=value;
+  }
+  
+const setValuebyClassName=(id,value)=>{
+    const element=document.querySelector(id);
+    element.textContent=value;
+  }
